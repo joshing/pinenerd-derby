@@ -31,3 +31,6 @@
 // it isn't always on
 #define IR_OUTPUT_PIN 5
 #define IR_INPUT_PIN A1
+
+// The Analog reading threshold to signal a beam break. Found this experimentally
+#define IR_ANALOG_THRESHOLD 995

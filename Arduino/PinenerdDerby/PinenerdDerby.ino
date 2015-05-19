@@ -41,7 +41,7 @@ void setup()
   myservo.attach(SERVO_PIN);
   myservo.write(0);
   delay(2000); // Can't call detach() before movement is finished
-  myservo.detach();
+  myservo.detach(); // If left attached, the servo will 'twitch'
   
   // Setup the LCD
   lcd.begin(16, 2);
@@ -81,7 +81,7 @@ void race() {
   long start = millis();
   
   // Wait until the IR beam at the finish is broken
-  while (analogRead(IR_INPUT_PIN) < 995) {
+  while (analogRead(IR_INPUT_PIN) < IR_ANALOG_THRESHOLD) {
     // It's possible that the IR beam fails to register the finish..
     // so provide an out by checking for the left (back) button
     buttons = lcd.readButtons();
